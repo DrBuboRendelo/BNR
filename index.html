@@ -25,14 +25,6 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: relative;
   }
-  #bubo-img {
-    position: absolute;
-    right: 1em;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 60px;
-    user-select: none;
-  }
   main {
     flex-grow: 1;
     max-width: 480px;
@@ -117,27 +109,39 @@
 
 <script>
   const panaszok = [
-    { nev: 'Álmatlanság', tanacs: 'Ha nem jön álom a szemére, számoljon inkább nem pulykát, hanem fáradt sáskát!' },
-    { nev: 'Bőrirritáció', tanacs: 'Ha viszket a bőr, ne vakarja, mert attól csak jobban bosszantja magát – inkább gondoljon Dr. Bubó bölcsességére.' },
-    { nev: 'Fejfájás', tanacs: 'Ha fáj a feje, nézzen körbe, hátha nem az ólomkatonák vonulnak benne. Egy kis mézes tea csodákra képes.' },
-    { nev: 'Fülzúgás', tanacs: 'Fülzúgás ellen hallgasson halk madárdalokat, vagy képzelje el, hogy épp a fülében koncert zajlik.' },
-    { nev: 'Gyomorrontás', tanacs: 'Gyomorrontásnál kerülje a fűszeres csodákat, inkább kérjen egy nyugtató beszélgetést Dr. Bubótól!' },
-    { nev: 'Hasmenés', tanacs: 'Hasmenés esetén igyon sok vizet, és gondoljon arra, hogy néha a dolgok csak túl gyorsan szaladnak.' },
-    { nev: 'Hátfájás', tanacs: 'Hátfájásnál próbáljon meg egy kicsit előrehajolni – vagy inkább egy jó nagy fűzfa alá feküdni.' },
-    { nev: 'Láz', tanacs: 'Ha láza van, pihenjen sokat, és gondoljon arra, hogy még Dr. Bubó sem tud minden bajra csodaszert.' },
-    { nev: 'Megfázás', tanacs: 'Megfázásnál jó egy forró tea mézzel, meg persze egy meleg pokróc, hogy a vírusok megfőjenek.' },
-    { nev: 'Nyelési nehézség', tanacs: 'Ha nyelni nehezére esik, próbálja meg nem lenyelni a gondokat is!' },
-    { nev: 'Orvosi félelem', tanacs: 'Az orvosi félelem ellen emlékezzen, hogy Dr. Bubó mindig csak a legjobbakat akarja.' },
-    { nev: 'Székrekedés', tanacs: 'Székrekedés ellen egy kis mozgás és gyümölcs csodákra képes. Ne üljön túl sokat a fa alatt!' },
-    { nev: 'Szédülés', tanacs: 'Szédülés esetén üljön le egy fára, és nézze meg, hogy a világ tényleg forog-e körülötte.' },
-    { nev: 'Tüsszögés', tanacs: 'Tüsszögéskor takarja el az orrát, hogy ne repüljön el Dr. Bubó sapkája.' },
-    { nev: 'Vérnyomás-ingadozás', tanacs: 'Ha ingadozik a vérnyomása, gondoljon arra, hogy a természet is hullámzik – csak egyensúlyozni kell!' },
-    { nev: 'Vérszegénység', tanacs: 'Vérszegénység ellen egyen sok májat és hallgassa a rigók énekét!' },
-    { nev: 'Zsibbadás', tanacs: 'Ha zsibbad a keze vagy lába, mozogjon egy kicsit, mintha épp táncolna a ligetben.' },
-    { nev: 'Allergia', tanacs: 'Allergia esetén próbáljon meg nem dörzsölni, mert csak bosszantja az idegeit.' },
-    { nev: 'Duzzanat', tanacs: 'Ha duzzanatot észlel, ne próbálja meg megnagyobbítani – hagyja inkább visszahúzódni.' },
-    { nev: 'Légszomj', tanacs: 'Légszomj esetén vegyen mély levegőt, és képzelje el, hogy friss erdei levegőt szív be.' }
-  ];
+    { nev: 'Ájulásérzet', tanacs: 'Üljön le, mielőtt a padló ül rá.' },
+    { nev: 'Álmatlanság', tanacs: 'Ha nem jön álom a szemére, számoljon fáradt sáskákat, ne pulykákat.' },
+    { nev: 'Allergia', tanacs: 'Por? Pollen? Menjen víz alá – ott egyik sincs.' },
+    { nev: 'Bőrirritáció', tanacs: 'Ne vakarja, inkább csiklandozza – legalább szórakoztatóbb.' },
+    { nev: 'Duzzanat', tanacs: 'Hideg borogatás – vagy higgadt hozzáállás.' },
+    { nev: 'Fáradtság', tanacs: 'Aludjon egy jót. Akkor is, ha most nincs kedve.' },
+    { nev: 'Fejfájás', tanacs: 'Fejfájás ellen próbálja ki a csendet – bár ritka, mint a békegalamb a rendelőben.' },
+    { nev: 'Fogfájás', tanacs: 'Ne harapjon rá semmire – se szó szerint, se képletesen.' },
+    { nev: 'Fülzúgás', tanacs: 'A fülzúgást csillapítsa madárcsicsergéssel vagy halk operával.' },
+    { nev: 'Gyomorrontás', tanacs: 'Kerülje a tegnapi pörköltet. Komolyan.' },
+    { nev: 'Hasmenés', tanacs: 'Maradjon otthon és gyorsabban jusson el a fürdőszobához, mint a gondolat.' },
+    { nev: 'Hátfájás', tanacs: 'Próbáljon fára mászni, de csak ha nincs tériszonya.' },
+    { nev: 'Hidegrázás', tanacs: 'Takaró alá, ne a fagyasztóba!' },
+    { nev: 'Izomgörcs', tanacs: 'Nyújtózkodjon úgy, mint a macska ebéd után.' },
+    { nev: 'Kézremegés', tanacs: 'Ne írjon SMS-t – félreérthető lehet.' },
+    { nev: 'Köhögés', tanacs: 'Köhögjön, de ne zavarja meg a tücsökzenét.' },
+    { nev: 'Lábfájás', tanacs: 'Pihentesse, de ne felejtse el, hogy járni mégiscsak kell.' },
+    { nev: 'Láz', tanacs: 'Láz esetén hűtőfürdő vagy hideg nézés a tükörbe ajánlott.' },
+    { nev: 'Légszomj', tanacs: 'Lassú légzés, nyugalom, erdei jelenet elképzelése.' },
+    { nev: 'Megfázás', tanacs: 'Tea, pokróc, mese – nem csak gyerekeknek.' },
+    { nev: 'Nyelési nehézség', tanacs: 'Ne nyelje le a büszkeségét sem – csak lassan, óvatosan.' },
+    { nev: 'Orrdugulás', tanacs: 'Párologtatás és orrfújás, de ne egyszerre.' },
+    { nev: 'Orvosi félelem', tanacs: 'Képzelje el az orvost bohócorrban. Segít.' },
+    { nev: 'Pánikérzés', tanacs: 'Lassú légzés, mély sóhaj – és egy kis humor a helyzetre.' },
+    { nev: 'Szájszárazság', tanacs: 'Igyon vizet – vagy olvasson kevesebb száraz viccet.' },
+    { nev: 'Szédülés', tanacs: 'Csukja be a szemét, ne a világ forogjon, hanem Ön pihenjen.' },
+    { nev: 'Székrekedés', tanacs: 'Körtelé, séta, vagy egy jó rémmese – bármi, ami mozgósít.' },
+    { nev: 'Szívdobogás', tanacs: 'Nyugalom, nem feltétlen szerelem.' },
+    { nev: 'Tüsszögés', tanacs: 'Tüsszögés ellen zsebkendő + villámgyors kézmozdulat.' },
+    { nev: 'Vérnyomás-ingadozás', tanacs: 'Mérje meg, de ne az idegességtől legyen magasabb.' },
+   { nev: 'Vérszegénység', tanacs: 'Vérszegénység ellen egyen sok májat és hallgassa a rigók énekét!' },
+    { nev: 'Zsibbadás', tanacs: 'Ha zsibbad a keze vagy lába, mozogjon egy kicsit, mintha épp táncolna a ligetben.' }
+  ]; 
 
   panaszok.sort((a,b) => a.nev.localeCompare(b.nev));
 
